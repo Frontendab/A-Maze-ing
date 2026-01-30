@@ -161,7 +161,7 @@ class RenderingVar:
 
         self.button_border: int = 3
         self.bd_thickness: int = 10
-        self.cell_padding: int = 3
+        self.cell_padding: int = 4
         self.cell_size: int = 50
 
         self.palette_idx: int = 0
@@ -362,11 +362,13 @@ def fill_cell(xvar: XVar,
         cell_pos (Tuple[int, int]): Tuple containing cell (col, row) position.
         color (int): Color hex value.
     """
-    padding = 4
 
     cell_col, cell_row = cell_pos
-    for _ in range(padding, rvar.cell_size - padding + 1):
-        for __ in range(padding, rvar.cell_size - padding + 1):
+    for _ in range(rvar.cell_padding, rvar.cell_size - rvar.cell_padding + 1):
+        for __ in range(
+            rvar.cell_padding,
+            rvar.cell_size - rvar.cell_padding + 1
+        ):
             put_pixel(
                 xvar.main_img,
                 cell_col * rvar.cell_size + rvar.bd_thickness + _,

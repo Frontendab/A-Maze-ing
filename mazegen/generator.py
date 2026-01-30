@@ -62,7 +62,7 @@ class MazeGenerator:
             maze_exit: Tuple[int, int],
             output_file: str,
             perfect: bool,
-            seed: Optional[int]=randint(0, 100)
+            seed: Optional[int] = randint(0, 100)
             ) -> None:
         """Initialize a new MazeGenerator instance.
 
@@ -89,7 +89,7 @@ class MazeGenerator:
         self.height: int = height
         self.entry: Tuple[int, int] = entry
         self.maze_exit: Tuple[int, int] = maze_exit
-        self.seed: int = seed
+        self.seed: int = seed if seed else self.seed
         self.output_file: str = output_file
         self.perfect: bool = perfect
         self.pattern_42: List[Tuple[int, int]] = self._generate_pattern_42()
