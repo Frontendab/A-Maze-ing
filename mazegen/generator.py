@@ -312,11 +312,11 @@ class MazeGenerator:
                         self._remove_wall(self.maze[ny][nx], op_wall)
 
     def dfs_steps(self) -> Generator[Any, None, None]:
-        """Generate the maze using Prim's randomized algorithm as a
+        """Generate the maze using Depth-First-Search algorithm as a
         generator.
 
         Yields:
-            Tuples describing wall removals for visualization or stepwise CPU
+            Tuples describing wall removals for visualization or stepwise
             consumers.
         """
         seed(self.seed)
