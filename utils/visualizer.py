@@ -256,14 +256,14 @@ def init_params(config: Dict[str, Any]) -> tuple[XVar, RenderingVar]:
             xvar.gen = MazeGenerator(
                 config['WIDTH'], config['HEIGHT'],
                 config['ENTRY'], config['EXIT'],
-                config['SEED'], config['OUTPUT_FILE'],
-                config['PERFECT']
+                config['OUTPUT_FILE'], config['PERFECT'],
+                config['SEED']
                 )
         else:
             xvar.gen = MazeGenerator(
                 config['WIDTH'], config['HEIGHT'],
                 config['ENTRY'], config['EXIT'],
-                None, config['OUTPUT_FILE'],
+                config['OUTPUT_FILE'],
                 config['PERFECT']
                 )
     except Exception as e:
@@ -714,10 +714,21 @@ def change_algorithm_oc(xvar: XVar, rvar: RenderingVar) -> None:
         xvar (XVar): XVar global variables.
         rvar (RenderingVar): Rendering global variables.
     """
+    btn = xvar.buttons[2]
+    draw_button(xvar, btn)
     if xvar.algo == "DFS":
         xvar.algo = "PRIM"
     else:
         xvar.algo = "DFS"
+    draw_text(
+        xvar.hud_img,
+        xvar.algo,
+        btn.x + 10, btn.y + btn.h // 2 - 10,
+        0xFFFFFFFF
+    )
+    xvar.mlx.mlx_put_image_to_window(
+        xvar.mlx_ptr, xvar.win, xvar.hud_img.img, rvar.hud_x, rvar.hud_y
+    )
 
 
 def find_path_oc(xvar: XVar, rvar: RenderingVar) -> None:
@@ -810,7 +821,7 @@ def init_buttons(xvar: XVar, rvar: RenderingVar) -> None:
             "IS PERFECT: YES" if xvar.gen.perfect else "IS PERFECT: NO",
             toggle_perfect_oc
         ),
-        ("CHANGE ALGORITHM", change_algorithm_oc),
+        ("DFS" if xvar.algo == "DFS" else "PRIM", change_algorithm_oc),
         ("FIND PATH", find_path_oc),
         ("TOGGLE PATH", toggle_path_oc),
         ("CHANGE COLORS", change_colors_oc),

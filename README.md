@@ -175,9 +175,9 @@ gen = MazeGenerator(
 		height=15,
 		entry=(1, 1),
 		maze_exit=(19, 13),
-		seed=42,	# optional
 		output_file="maze.txt",
 		perfect=True,
+		seed=42	# optional
 )
 
 # Synchronous generation (saves into gen.maze)

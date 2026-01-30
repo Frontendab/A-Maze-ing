@@ -50,14 +50,14 @@ def main() -> None:
             gen = MazeGenerator(
                 config['WIDTH'], config['HEIGHT'],
                 config['ENTRY'], config['EXIT'],
-                config['SEED'], config['OUTPUT_FILE'],
-                config['PERFECT']
+                config['OUTPUT_FILE'], config['PERFECT'],
+                config['SEED']
                 )
         else:
             gen = MazeGenerator(
                 config['WIDTH'], config['HEIGHT'],
                 config['ENTRY'], config['EXIT'],
-                None, config['OUTPUT_FILE'],
+                config['OUTPUT_FILE'],
                 config['PERFECT']
                 )
     except Exception as e:
