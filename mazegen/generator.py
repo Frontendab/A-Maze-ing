@@ -440,7 +440,7 @@ class MazeGenerator:
         while pq:
             current_cost, (curr_x, curr_y), path = heapq.heappop(pq)
 
-            yield path[1: -1]
+            yield path
 
             if (curr_x, curr_y) == end:
                 self.path = path

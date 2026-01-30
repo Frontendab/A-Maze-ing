@@ -621,7 +621,7 @@ def animate_path_finding(param: Tuple[XVar, RenderingVar]) -> None:
         if xvar.anim.tick % (xvar.anim.speed * 2) == 0:
             try:
                 current_path = next(xvar.anim.steps)
-                draw_path_step(xvar, rvar, current_path)
+                draw_path_step(xvar, rvar, current_path[1: -1])
             except StopIteration:
                 xvar.anim.path_done = True
                 clear_path_finding(xvar, rvar)
@@ -744,7 +744,7 @@ def toggle_path_oc(xvar: XVar, rvar: RenderingVar) -> None:
     xvar.toggle_path_finding = not xvar.toggle_path_finding
 
     if xvar.toggle_path_finding and xvar.gen.path:
-        draw_path_step(xvar, rvar, xvar.gen.path)
+        draw_path_step(xvar, rvar, xvar.gen.path[1: -1])
     else:
         clear_path_finding(xvar, rvar)
 
@@ -762,7 +762,7 @@ def change_colors_oc(xvar: XVar, rvar: RenderingVar) -> None:
         clear_img(xvar.main_img, rvar)
         draw_full_grid(xvar, rvar)
     if xvar.gen.path and xvar.anim.path_done and xvar.toggle_path_finding:
-        draw_path_step(xvar, rvar, xvar.gen.path)
+        draw_path_step(xvar, rvar, xvar.gen.path[1: -1])
 
 
 def inc_speed_oc(xvar: XVar, rvar: RenderingVar) -> None:
