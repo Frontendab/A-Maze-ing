@@ -113,7 +113,7 @@ Notes about the embedded "42" pattern
 - The parser and generator will raise an error if `ENTRY` or `EXIT` falls
 	inside the protected pattern.
 
-## Maze generation algorithms
+## Algorithms
 ### Depth-First-Search algorithm
 The depth-first search (recursive backtracker) algorithm carves passages by walking from a start cell, repeatedly choosing a random unvisited neighbor and backtracking when no neighbors remain. It produces perfect mazes with long, meandering corridors, runs in linear time relative to the number of cells, and maps naturally to the provided step-wise API for smooth generation animation.
 The exact steps are explained bellow:
@@ -163,6 +163,31 @@ DFS (recursive backtracker) was chosen for its simplicity, efficiency, and the c
 
 ### Prim's algorithm choice explanation
 Prim’s algorithm was included to offer a contrasting maze topology: more evenly distributed passages and shorter average path lengths, producing “bushier” layouts than DFS. Its frontier-based approach also animates naturally and deterministically with a seed, giving users an alternative generation style and complementary visual/solving behaviors to suit different preferences or testing scenarios.
+
+### Dijkstra Path Finding algorithm:
+
+Step-by-Step Execution
+
+1.  **Initialization**: 
+    * The algorithm starts at the `entry` point with a cost of 0.
+    * A **Priority Queue (Heap)** is initialized to store paths, always keeping the path with the lowest cumulative cost at the top.
+    * A `distance` map tracks the minimum cost to reach every cell, preventing redundant processing.
+
+2.  **Exploration & Wall Detection**:
+    * The algorithm pops the current shortest path from the queue.
+    * It inspects all four cardinal directions (North, East, South, West).
+    * **Collision Check**: Movement is only permitted if the `Cell` object reports no wall in the target direction and the coordinates remain within maze boundaries.
+
+3.  **Real-time Animation (Generator)**:
+    * The function is implemented as a **Python Generator**.
+    * It `yields` the current path at every iteration. This allows the GUI/Visualizer to render the "exploration" process frame-by-frame without freezing the application.
+
+4.  **Path Optimization**: 
+    * If a shorter path to a specific cell is discovered, the `distance` map is updated, and the new, more efficient path is pushed into the priority queue.
+    * This mathematical rigor ensures that the first time the `maze_exit` is reached, it is guaranteed to be the shortest possible route.
+
+5.  **Termination**:
+    * Once the `maze_exit` coordinates are popped from the queue, the final path is saved to the object state and the animation concludes.
 
 ## Reusable Code
 You can use the library directly from Python:

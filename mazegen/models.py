@@ -91,11 +91,3 @@ class Cell:
             Uppercase hex string representing the current wall bits.
         """
         return hex(self._walls)[2:].upper()
-
-    def draw(self) -> None:
-        """Placeholder for rendering logic used by visualizers.
-
-        Implementations may draw the cell to a canvas or terminal. The
-        default implementation is a no-op.
-        """
-        pass
