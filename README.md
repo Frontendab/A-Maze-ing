@@ -67,7 +67,22 @@ make debug
 ```
 
 # Resources
+### Links
+- [Maze generation algorithms](https://en.wikipedia.org/wiki/Maze_generation_algorithm)
+- [Maze Generation Algorithms - An Exploration](https://professor-l.github.io/mazes)
+- [Visualizer inspiration](https://pinglu85.github.io/maze)
+- [Maze generation algorithms - Video explanation](https://youtu.be/ioUl1M77hww?si=TUgsrPZtCQx2crEo)
+- [Dijkstra's Algorithm](https://www.geeksforgeeks.org/dsa/dijkstras-shortest-path-algorithm-greedy-algo-7)
+- [Documentation of MiniLibX](https://harm-smits.github.io/42docs/libs/minilibx)
 
+### AI Usage
+- **Algorithm Refinement**: Clarifying the step-by-step logic for randomized Prim’s and DFS implementations.
+
+- **Documentation**: Assisting in the drafting and formatting of this README and technical explanations.
+
+- **Debugging**: Troubleshooting specific Python 3.10 match statement edge cases and static typing with mypy.
+
+⚠️ No AI-generated code was used in the final submission; all code was written and implemented manually. AI assistance was limited to conceptual guidance and explanations.
 
 # Additional Sections
 
