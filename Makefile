@@ -10,7 +10,7 @@ FLAKE8 = ./$(VENV)/bin/flake8
 PROGRAM_NAME = a_maze_ing
 CONFIG_FILE = config.txt
 
-PACKAGES_TO_INSTALL = mypy flake8 mlx-2.2-cp310-cp310-linux_x86_64.whl
+PACKAGES_TO_INSTALL = mypy flake8 mlx-2.2-cp312-cp312-linux_x86_64.whl
 
 PDB_COMMAND = $(PYTHON) -m pdb $(PROGRAM_NAME).py
 

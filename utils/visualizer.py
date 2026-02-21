@@ -162,7 +162,7 @@ class RenderingVar:
         self.button_border: int = 3
         self.bd_thickness: int = 10
         self.cell_padding: int = 4
-        self.cell_size: int = 50
+        self.cell_size: int = 35
 
         self.palette_idx: int = 0
         self.color_palette: Palette = COLOR_PALETTES[self.palette_idx]
