@@ -1,6 +1,5 @@
 *This project has been created as part of the 42 curriculum by `asadouri` and `abouzkra`*
 
-
 # Description
 ### A-Maze-ing
 A-Maze-ing is a lightweight Python project for generating, inspecting, and
@@ -258,6 +257,9 @@ Work was organized around small, focused milestones: core maze model, generation
 - flake8 / mypy — Static checks for code style and typing.
 
 ## Advanced Features
+
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/ce3e3518-85b5-4791-ad79-1c42ba56d54b" />
+
 ### Visualizer Buttons
 The visualizer exposes simple controls to inspect and interact with generation and solving in real time:
 
